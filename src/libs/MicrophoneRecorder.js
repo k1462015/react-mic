@@ -1,16 +1,5 @@
 import AudioContext from './AudioContext';
 
-let analyser;
-let audioCtx;
-let mediaRecorder;
-let chunks = [];
-let startTime;
-let stream;
-let mediaOptions;
-let blobObject;
-let onStartCallback;
-let onStopCallback;
-
 const constraints = { audio: true, video: false }; // constraints - only audio needed
 
 navigator.getUserMedia = (navigator.getUserMedia ||
@@ -19,6 +8,17 @@ navigator.getUserMedia = (navigator.getUserMedia ||
                           navigator.msGetUserMedia);
 
 export class MicrophoneRecorder {
+  let analyser;
+  let audioCtx;
+  let mediaRecorder;
+  let chunks = [];
+  let startTime;
+  let stream;
+  let mediaOptions;
+  let blobObject;
+  let onStartCallback;
+  let onStopCallback;
+
   constructor(onStart, onStop, options) {
     onStartCallback= onStart;
     onStopCallback= onStop;
